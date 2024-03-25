@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension CAAnimation {
+public extension CAAnimation {
     static func swing(amplitude: CGFloat = 8, duration: CFTimeInterval = 0.1, repeatCount: Float = 2) -> CAAnimation {
         let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
         animation.values = [0, -amplitude, amplitude, 0]
