@@ -1,0 +1,16 @@
+PODS:
+  - CAAnimationChainable (0.1.0)
+
+DEPENDENCIES:
+  - CAAnimationChainable (from `../`)
+
+EXTERNAL SOURCES:
+  CAAnimationChainable:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  CAAnimationChainable: b431a3d933d42663c6b4aca867bf701b9e7852a6
+
+PODFILE CHECKSUM: a3bd6148e89d37f30b1248025583134712b06e84
+
+COCOAPODS: 1.15.2
