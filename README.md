@@ -17,12 +17,12 @@ CAAnimationChainable is available through [CocoaPods](https://cocoapods.org). To
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'CAAnimationChainable'
+pod 'CAAnimationChainable', :git => 'https://github.com/huangqingchao/CAAnimationChainable.git'
 ```
 
 ## Author
 
-19640477, huangqcmail@icloud.com
+huangqc, huangqcmail@icloud.com
 
 ## License
 
