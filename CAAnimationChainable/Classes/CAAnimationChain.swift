@@ -20,19 +20,19 @@ public class CAAnimationChain {
         self._layer = layer
     }
     
-    func add(anima: CAAnimation, completion: os_block_t? = nil) -> Self {
+    public func add(anima: CAAnimation, completion: os_block_t? = nil) -> Self {
         anima.isRemovedOnCompletion = false
         anima.fillMode = .both
         self._bufferAnimations.append(.init(animation: anima, completion: completion))
         return self
     }
     
-    func add(action: CAAnimationChain.Action,
-             duration: CFTimeInterval,
-             autoreverses: Bool = false,
-             repeatCount: Float = 1,
-             timing: CAMediaTimingFunctionName? = nil,
-             completion: os_block_t? = nil) -> Self {
+    public func add(action: CAAnimationChain.Action,
+                    duration: CFTimeInterval,
+                    autoreverses: Bool = false,
+                    repeatCount: Float = 1,
+                    timing: CAMediaTimingFunctionName? = nil,
+                    completion: os_block_t? = nil) -> Self {
         
         let animation = action.animation
         animation.delegate = self._animationDelegateProxy
@@ -48,12 +48,12 @@ public class CAAnimationChain {
         return self.add(anima: animation, completion: completion)
     }
     
-    func add(actions: [CAAnimationChain.Action],
-             duration: CFTimeInterval,
-             autoreverses: Bool = false,
-             repeatCount: Float = 1,
-             timing: CAMediaTimingFunctionName? = nil,
-             completion: os_block_t? = nil) -> Self {
+    public func add(actions: [CAAnimationChain.Action],
+                    duration: CFTimeInterval,
+                    autoreverses: Bool = false,
+                    repeatCount: Float = 1,
+                    timing: CAMediaTimingFunctionName? = nil,
+                    completion: os_block_t? = nil) -> Self {
         
         let group = CAAnimationGroup()
         group.animations = actions.map { $0.animation }
@@ -69,7 +69,7 @@ public class CAAnimationChain {
         return self.add(anima: group, completion: completion)
     }
     
-    func run() {
+    public func run() {
         self.cancel()
         
         guard !self._bufferAnimations.isEmpty else {
@@ -84,7 +84,7 @@ public class CAAnimationChain {
         self._layer?.add(animation.animation, forKey: animation.key)
     }
     
-    func cancel() {
+    public func cancel() {
         self._executingAnimationIndex = nil
         self._executingAnimations?.forEach({
             self._layer?.removeAnimation(forKey: $0.key)
