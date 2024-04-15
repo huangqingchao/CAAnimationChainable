@@ -13,6 +13,10 @@ public extension CAAnimationChain {
         case translation(_ v: CGVector, from: CGVector? = nil)
         case translationX(_ x: CGFloat, from: CGFloat? = nil)
         case translationY(_ y: CGFloat, from: CGFloat? = nil)
+        case scale(_ s: CGFloat, from: CGFloat? = nil)
+        case scaleX(_ x: CGFloat, from: CGFloat? = nil)
+        case scaleY(_ y: CGFloat, from: CGFloat? = nil)
+        case scaleZ(_ z: CGFloat, from: CGFloat? = nil)
         case backgroundColor(_ color: UIColor, from: UIColor? = nil)
     }
 }
@@ -32,6 +36,22 @@ extension CAAnimationChain.Action {
         case let .translationY(y, from):
             animation = CABasicAnimation(keyPath: "transform.translation.y")
             animation.toValue = y
+            if let from { animation.fromValue = from }
+        case let .scale(s, from):
+            animation = CABasicAnimation(keyPath: "transform.scale")
+            animation.toValue = s
+            if let from { animation.fromValue = from }
+        case let .scaleX(x, from):
+            animation = CABasicAnimation(keyPath: "transform.scale.x")
+            animation.toValue = x
+            if let from { animation.fromValue = from }
+        case let .scaleY(y, from):
+            animation = CABasicAnimation(keyPath: "transform.scale.y")
+            animation.toValue = y
+            if let from { animation.fromValue = from }
+        case let .scaleZ(z, from):
+            animation = CABasicAnimation(keyPath: "transform.scale.z")
+            animation.toValue = z
             if let from { animation.fromValue = from }
         case let .backgroundColor(color, from):
             animation = CABasicAnimation(keyPath: "backgroundColor")
