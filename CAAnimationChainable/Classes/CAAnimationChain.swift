@@ -8,6 +8,9 @@
 import UIKit
 
 public class CAAnimationChain {
+    // 是否执行动画中
+    var isExecAnimation = false
+    
     weak private var _layer: CALayer?
     
     private var _bufferAnimations: [Animation] = []
@@ -76,6 +79,8 @@ public class CAAnimationChain {
             return
         }
         
+        self.isExecAnimation = true
+        
         self._executingAnimations = self._bufferAnimations
         self._bufferAnimations = []
         
@@ -90,6 +95,8 @@ public class CAAnimationChain {
             self._layer?.removeAnimation(forKey: $0.key)
         })
         self._executingAnimations = nil
+        
+        self.isExecAnimation = false
     }
 }
 
