@@ -9,7 +9,7 @@ import UIKit
 
 public class CAAnimationChain {
     // 是否执行动画中
-    var isExecAnimation = false
+    public var isExecAnimation = false
     
     weak private var _layer: CALayer?
     
